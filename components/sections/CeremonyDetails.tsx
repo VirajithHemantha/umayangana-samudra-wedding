@@ -13,20 +13,25 @@ export default function CeremonyDetails() {
 
   const detailGroups = [
     {
-      key: 'reception',
-      title: 'Wedding Celebration',
-      timeLabel: 'Arrival Time',
-      timeValue: '8:30 AM',
+      key: 'church',
+      title: 'Church Ceremony',
+      timeLabel: 'Ceremony Time',
+      timeValue: '2:00 PM Onward',
       venueLabel: 'Venue',
-      venueValue: "Asliya Cassandra Lotus Ball Room",
+      venueValue: "St. Anthony's Church",
+      venueSub: "Weliweriya",
+      mapLink: "https://maps.app.goo.gl/YLxk4WhENK4x5pCR8"
     },
     {
-      key: 'poruwa',
-      title: 'Poruwa Ceremony',
-      timeLabel: 'Ceremony Time',
-      timeValue: '9:20 AM',
-      timeSub: 'Traditional Poruwa Ceremony',
-    },
+      key: 'reception',
+      title: 'Wedding Reception',
+      timeLabel: 'Arrival Time',
+      timeValue: '6:30 PM - 11:30 PM',
+      venueLabel: 'Venue',
+      venueValue: "Eagles' Lagoon View",
+      venueSub: "Katunayake",
+      mapLink: "https://maps.app.goo.gl/pj2nymY27RNf1pv8A"
+    }
   ];
 
   return (
@@ -36,10 +41,15 @@ export default function CeremonyDetails() {
     >
       {/* Background Ornaments */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute left-0 top-0 h-full w-full opacity-[0.05] mix-blend-multiply"
-          style={{ backgroundImage: `radial-gradient(circle at 20px 20px, var(--primary) 1.1px, transparent 1.1px)`, backgroundSize: '40px 40px' }} />
-        <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-primary/15 blur-[120px]" />
-        <div className="absolute right-0 bottom-0 h-[40rem] w-[40rem] rounded-full bg-secondary/15 blur-[140px]" />
+        <div
+          className="absolute left-0 top-0 h-full w-full opacity-[0.05] mix-blend-multiply"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20px 20px, var(--primary) 1.1px, transparent 1.1px)`,
+            backgroundSize: '40px 40px'
+          }}
+        />
+        <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute right-0 bottom-0 h-[40rem] w-[40rem] rounded-full bg-primary/5 blur-[140px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -55,9 +65,8 @@ export default function CeremonyDetails() {
             <motion.div
               whileHover={{ scale: 1.02, rotateY: 5 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative h-[500px] sm:h-[520px] md:h-[600px] w-full max-w-[420px] overflow-hidden rounded-[30px] md:rounded-t-[200px] md:rounded-b-[30px] border-[0.5px] border-primary/40 shadow-[0_40px_100px_rgba(142,28,63,0.35)] bg-[linear-gradient(145deg,#8E1C3F_0%,#C24D6D_45%,#2D4F2D_100%)]"
+              className="relative h-[500px] sm:h-[520px] md:h-[600px] w-full max-w-[420px] overflow-hidden rounded-[30px] md:rounded-t-[200px] md:rounded-b-[30px] border-[0.5px] border-primary/40 shadow-[0_40px_100px_rgba(115,30,61,0.35)] bg-[linear-gradient(145deg,#731e3d_0%,#91274d_45%,#731e3d_100%)]"
             >
-              {/* Background Video - More Clear */}
               <video
                 autoPlay
                 loop
@@ -68,18 +77,19 @@ export default function CeremonyDetails() {
                 <source src="/35575-407595493.mp4" type="video/mp4" />
               </video>
 
-              {/* Sophisticated Overlays for depth */}
               <div className="absolute inset-0 bg-black/5 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
 
-              {/* Large artistic monogram watermark */}
+              {/* Monogram */}
               <div className="absolute inset-0 flex items-center justify-center opacity-[0.1] pointer-events-none">
-                <span className="font-serif text-[18rem] md:text-[22rem] text-white/50 tracking-tighter select-none">US</span>
+                <span className="font-serif text-[18rem] md:text-[22rem] text-white/50 tracking-tighter select-none">
+                  SN
+                </span>
               </div>
 
-              {/* Central Light Highlight - More Intense */}
+              {/* Light highlight */}
               <motion.div
-                animate={{ 
+                animate={{
                   scale: [1, 1.25, 1],
                   opacity: [0.3, 0.6, 0.3],
                 }}
@@ -88,39 +98,41 @@ export default function CeremonyDetails() {
               />
 
               <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-8 text-center text-white">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 1, delay: 0.4 }}
                   className="relative z-10 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 py-2 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
                 >
                   <Heart className="h-4 w-4 text-white fill-white/20" />
-                  <p className="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Joined as One</p>
+                  <p className="text-[10px] uppercase tracking-[0.4em] text-white font-bold">
+                    Joined as One
+                  </p>
                 </motion.div>
-                
+
                 <h3 className="relative z-10 mt-6 md:mt-8 font-serif text-5xl md:text-7xl text-white tracking-wide drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
-                  U <span className="text-primary italic drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">&amp;</span> S
+                  S <span className="text-primary italic">&amp;</span> N
                 </h3>
-                
+
                 <div className="relative z-10 mt-6 md:mt-10 flex items-center justify-center gap-5">
                   <span className="h-[0.5px] w-14 bg-gradient-to-r from-transparent via-white/60 to-transparent" />
                   <Sparkles className="h-6 w-6 text-white animate-pulse" />
                   <span className="h-[0.5px] w-14 bg-gradient-to-l from-transparent via-white/60 to-transparent" />
                 </div>
 
-                <p className="relative z-10 mt-6 md:mt-10 text-lg md:text-xl leading-relaxed text-white drop-shadow-lg font-light italic px-4 max-w-[320px]">
+                <p className="relative z-10 mt-6 md:mt-10 text-lg md:text-xl leading-relaxed text-white italic px-4 max-w-[320px]">
                   "Two hearts, one love, and a beautiful journey begins."
                 </p>
-                
+
                 <div className="relative z-10 mt-8 md:mt-12 group">
-                   <div className="absolute -inset-4 bg-white/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700" />
-                   <p className="relative z-10 text-xs md:text-sm uppercase tracking-[0.4em] text-white font-bold border-y border-white/40 py-3 md:py-4 px-6 md:px-8 backdrop-blur-sm">
-                     July 27, 2026
-                   </p>
+                  <div className="absolute -inset-4 bg-white/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700" />
+                  <p className="relative z-10 text-xs md:text-sm uppercase tracking-[0.4em] text-white font-bold border-y border-white/40 py-3 md:py-4 px-6 md:px-8 backdrop-blur-sm">
+                    June 29, 2026
+                  </p>
                 </div>
               </div>
 
-              {/* Elegant floating badge */}
+              {/* Floating Badge */}
               <motion.div
                 animate={{ y: [0, -15, 0], rotate: [0, 3, -3, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
@@ -128,24 +140,15 @@ export default function CeremonyDetails() {
               >
                 <div className="text-center">
                   <Crown className="mx-auto h-10 w-10 text-white" />
-                  <span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.4em] text-white">Forever</span>
+                  <span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.4em] text-white">
+                    Forever
+                  </span>
                 </div>
               </motion.div>
 
-              {/* Cinematic Light streaks */}
+              {/* Light streaks */}
               <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.15)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_10s_infinite_linear] opacity-40 pointer-events-none" />
-              <div className="absolute inset-0 bg-[linear-gradient(-45deg,transparent_35%,rgba(142,28,63,0.1)_50%,transparent_65%)] bg-[length:250%_250%] animate-[shimmer_12s_infinite_linear] opacity-40" />
-
-              {/* Cinematic Lens Flare */}
-              <motion.div
-                animate={{ 
-                  left: ['-50%', '150%'],
-                  top: ['20%', '80%'],
-                  opacity: [0, 0.3, 0]
-                }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                className="absolute h-[2px] w-64 bg-gradient-to-r from-transparent via-white/40 to-transparent rotate-[-45deg] blur-sm pointer-events-none"
-              />
+              <div className="absolute inset-0 bg-[linear-gradient(-45deg,transparent_35%,rgba(115,30,61,0.1)_50%,transparent_65%)] bg-[length:250%_250%] animate-[shimmer_12s_infinite_linear] opacity-40" />
             </motion.div>
           </motion.div>
 
@@ -168,66 +171,57 @@ export default function CeremonyDetails() {
               <span className="italic text-primary">Ceremony</span>
             </h2>
 
-            <p className="mb-12 text-lg leading-relaxed text-[#4B4B4B] max-w-lg">
-              With immense joy in our hearts, we invite you to share our happiness as we embark on our journey together. Join us for the celebration of our love, commitment, and new beginnings.
-            </p>
-
             <div className="flex flex-col gap-5">
-              {detailGroups.map((group, index) => {
-                return (
-                    <motion.div
-                      key={group.key}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={inView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                      whileHover={{ x: 10, backgroundColor: 'rgba(142,28,63,0.08)' }}
-                      className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-5 shadow-[0_10px_40px_rgba(142,28,63,0.06)] transition-all cursor-default"
-                    >
-                      <div className="absolute left-0 top-0 w-1 h-full bg-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-300" />
+              {detailGroups.map((group, index) => (
+                <motion.div
+                  key={group.key}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                  whileHover={{ x: 10, backgroundColor: 'rgba(115,30,61,0.08)' }}
+                  className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white p-5 shadow-[0_10px_40px_rgba(115,30,61,0.06)] transition-all"
+                >
+                  <div className="absolute left-0 top-0 w-1 h-full bg-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-300" />
 
-                    <div className="mb-4">
-                      <p className="text-xs uppercase tracking-[0.25em] text-primary/70">{group.title} Details</p>
+                  <p className="text-xs uppercase tracking-[0.25em] text-primary/70 mb-4">
+                    {group.title} Details
+                  </p>
+
+                  <div className="space-y-5">
+                    <div className="flex items-start gap-4">
+                      <Clock3 className="h-5 w-5 text-primary" />
+                      <div>
+                        <p>{group.timeLabel}</p>
+                        <h3>{group.timeValue}</h3>
+                      </div>
                     </div>
 
-                    <div className="space-y-5">
-                      {group.timeLabel && (
-                        <div className="flex items-start gap-4">
-                          <div className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-gradient-to-br from-primary/20 to-white/10 shadow-inner">
-                            <Clock3 className="h-5 w-5 text-primary" />
-                          </div>
-                          <div>
-                            <p className="text-xs uppercase tracking-[0.25em] text-primary/70 mb-1">{group.timeLabel}</p>
-                            <h3 className="font-serif text-2xl text-[#1A1A1A]">{group.timeValue}</h3>
-                            <p className="text-sm text-slate-500 mt-1">{group.timeSub}</p>
-                          </div>
-                        </div>
-                      )}
+                    <div className="h-px w-full bg-primary/20" />
 
-                      {group.venueLabel && (
-                        <>
-                          {(group.timeLabel) && <div className="h-px w-full bg-primary/20" />}
-                          <div className="flex items-start gap-4">
-                            <div className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-gradient-to-br from-primary/20 to-white/10 shadow-inner">
-                              <MapPin className="h-5 w-5 text-primary" />
-                            </div>
-                            <div>
-                              <p className="text-xs uppercase tracking-[0.25em] text-primary/70 mb-1">{group.venueLabel}</p>
-                              <h3 className="font-serif text-2xl text-[#1A1A1A]">{group.venueValue}</h3>
-                              {group.venueSub && <p className="text-sm text-slate-500 mt-1">{group.venueSub}</p>}
-                            </div>
-                          </div>
-                        </>
-                      )}
+                    <div className="flex items-start gap-4">
+                      <MapPin className="h-5 w-5 text-primary" />
+                      <div>
+                        <p>{group.venueLabel}</p>
+                        <h3>{group.venueValue}</h3>
+                        {group.venueSub && <p>{group.venueSub}</p>}
+
+                        {group.mapLink && (
+                          <a
+                            href={group.mapLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary"
+                          >
+                            View on Map
+                          </a>
+                        )}
+                      </div>
                     </div>
-                  </motion.div>
-                );
-              })}
+                  </div>
+                </motion.div>
+              ))}
             </div>
-
-
-
           </motion.div>
-
         </div>
       </div>
     </section>
